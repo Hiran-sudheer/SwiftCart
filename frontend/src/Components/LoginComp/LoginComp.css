@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.loginContainer {
+  padding: 0 250px;
+  margin-top: 128px;
+}
+.loginContainer .container {
+  border: 2px solid #313131;
+  display: flex;
+}
+.loginContainer .container .imageContainer img {
+  max-width: 400px;
+  height: 100%;
+}
+.loginContainer .container .inputsContianer {
+  width: 100%;
+  padding-left: 64px;
+  padding-bottom: 24px;
+}
+.loginContainer .container .inputsContianer .successMessageContainer {
+  width: 200px;
+  margin-bottom: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.loginContainer .container .inputsContianer .successMessage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.loginContainer .container .inputsContianer .successMessage p {
+  margin: 0;
+}
+.loginContainer .container .inputsContianer .closeButton {
+  background-color: #fff;
+  color: #4caf50;
+  border: none;
+  padding: 4px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.loginContainer .container .inputsContianer h3 {
+  color: #313131;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .usernameAndPasswordContaienr {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .usernameAndPasswordContaienr input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #313131;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .usernameAndPasswordContaienr label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .passwordContainer {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .passwordContainer input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #313131;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .passwordContainer label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.loginContainer .container .inputsContianer .inputsCredentaialsContainer .buttonsContainer .credButtonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+.loginContainer .container .inputsContianer .loginBtn {
+  width: 80%;
+  margin-top: 32px;
+  padding: 15px;
+  border: none;
+  background-color: #00A896;
+  color: #ffffff;
+  cursor: pointer;
+}
+.loginContainer .container .inputsContianer .forgotBtn {
+  border: none;
+  color: #00A896;
+  background-color: #ffffff;
+  margin-top: 8px;
+  cursor: pointer;
+  width: 80%;
+}
+.loginContainer .container .inputsContianer .signup {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #00A896;
+  background-color: #ffffff;
+  color: #00A896;
+  margin-top: -24px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .loginContainer {
+    padding: 0 64px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .loginContainer {
+    padding: 0 32px;
+  }
+  .loginContainer .container {
+    border: 2px solid #313131;
+    display: flex;
+  }
+  .loginContainer .container .imageContainer img {
+    max-width: 300px;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media screen and (max-width: 425px) {
+  .loginContainer {
+    padding: 0 16px;
+  }
+  .loginContainer .container {
+    border: 2px solid #313131;
+    display: flex;
+  }
+  .loginContainer .container .imageContainer img {
+    display: none;
+    max-width: 400px;
+    height: 100%;
+  }
+  .loginContainer .container .inputsContianer {
+    width: 100%;
+    padding: 8px;
+  }
+  .loginContainer .container .inputsContianer h3 {
+    color: #313131;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .usernameAndPasswordContaienr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .usernameAndPasswordContaienr input {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #313131;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .usernameAndPasswordContaienr label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .passwordContainer {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .passwordContainer input {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #313131;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .passwordContainer label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .loginContainer .container .inputsContianer .inputsCredentaialsContainer .buttonsContainer .credButtonsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .loginContainer .container .inputsContianer .loginBtn {
+    width: 100%;
+    margin-top: 32px;
+    padding: 15px;
+    border: none;
+    background-color: #00A896;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .loginContainer .container .inputsContianer .forgotBtn {
+    border: none;
+    color: #00A896;
+    background-color: #ffffff;
+    margin-top: 8px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .loginContainer .container .inputsContianer .signup {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00A896;
+    background-color: #ffffff;
+    color: #00A896;
+    margin-top: -24px;
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=LoginComp.css.map */

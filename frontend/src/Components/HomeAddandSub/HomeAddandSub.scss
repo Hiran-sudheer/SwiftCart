@@ -1,0 +1,27 @@
+@import '../variables';
+
+.homeAddandSubContainer{
+    display: flex;
+
+    button{
+        height: 30px;
+        width: 30px;
+        background-color: $secondaryColor;
+        border: none;
+     
+        &:hover{
+            background-color: rgb(237, 237, 237);
+            cursor: pointer;
+            
+        }
+    }
+
+    .homeAddsubItems{
+        width: 50px;
+        margin-right: 5px;
+        margin-left: 5px;
+        &:hover{
+            background-color: $secondaryColor;
+        }
+    }
+}

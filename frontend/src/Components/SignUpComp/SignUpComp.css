@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.signpContainer {
+  margin-top: 128px;
+  padding: 0 250px;
+  display: flex;
+}
+.signpContainer .container {
+  border: 2px solid #313131;
+  display: flex;
+  width: 100%;
+}
+.signpContainer .container .imageContainer {
+  height: 100%;
+}
+.signpContainer .container .imageContainer img {
+  max-width: 400px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.signpContainer .container .inputsContainer {
+  padding: 15px;
+  width: 100%;
+}
+.signpContainer .container .inputsContainer .successMessageContainer {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.signpContainer .container .inputsContainer .successMessage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.signpContainer .container .inputsContainer .successMessage p {
+  margin: 0;
+}
+.signpContainer .container .inputsContainer .closeButton {
+  background-color: #fff;
+  color: #4caf50;
+  border: none;
+  padding: 4px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.signpContainer .container .inputsContainer h3 {
+  margin-left: 15px;
+}
+.signpContainer .container .inputsContainer .usernameAndEmailContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.signpContainer .container .inputsContainer .usernameAndEmailContainer label {
+  font-size: 13px;
+}
+.signpContainer .container .inputsContainer .usernameAndEmailContainer input {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #313131;
+}
+.signpContainer .container .inputsContainer .signUpBtn {
+  width: 82%;
+  padding: 15px;
+  border: none;
+  background-color: #ff642c;
+  color: #ffffff;
+  cursor: pointer;
+}
+.signpContainer .container .inputsContainer .loginBtn {
+  margin-top: 8px;
+  width: 82%;
+  padding: 15px;
+  border: 1px solid #ff642c;
+  background-color: rgb(255, 255, 255);
+  color: #ff642c;
+  cursor: pointer;
+  margin-top: -12px;
+}
+
+@media screen and (max-width: 1024px) {
+  .signpContainer {
+    padding: 0 64px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .signpContainer {
+    padding: 0 32px;
+  }
+  .signpContainer .container {
+    border: 2px solid #313131;
+    display: flex;
+    width: 100%;
+  }
+  .signpContainer .container .imageContainer {
+    height: 100%;
+  }
+  .signpContainer .container .imageContainer img {
+    max-width: 300px;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .signpContainer .container .inputsContainer {
+    padding: 15px;
+    width: 100%;
+  }
+  .signpContainer .container .inputsContainer h3 {
+    margin-left: 15px;
+  }
+  .signpContainer .container .inputsContainer .usernameAndEmailContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+  .signpContainer .container .inputsContainer .usernameAndEmailContainer label {
+    font-size: 13px;
+  }
+  .signpContainer .container .inputsContainer .usernameAndEmailContainer input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #313131;
+  }
+  .signpContainer .container .inputsContainer .signUpBtn {
+    width: 82%;
+    padding: 15px;
+    border: none;
+    background-color: #ff642c;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .signpContainer .container .inputsContainer .loginBtn {
+    margin-top: 8px;
+    width: 82%;
+    padding: 15px;
+    border: 1px solid #ff642c;
+    background-color: rgb(255, 255, 255);
+    color: #ff642c;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 425px) {
+  .signpContainer {
+    padding: 0 16px;
+  }
+  .signpContainer .container {
+    border: 2px solid #313131;
+    display: flex;
+    width: 100%;
+  }
+  .signpContainer .container .imageContainer {
+    height: 100%;
+  }
+  .signpContainer .container .imageContainer img {
+    max-width: 300px;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: none;
+  }
+  .signpContainer .container .inputsContainer {
+    padding: 15px;
+    width: 100%;
+  }
+  .signpContainer .container .inputsContainer h3 {
+    margin-left: 15px;
+  }
+  .signpContainer .container .inputsContainer .usernameAndEmailContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+  .signpContainer .container .inputsContainer .usernameAndEmailContainer label {
+    font-size: 13px;
+  }
+  .signpContainer .container .inputsContainer .usernameAndEmailContainer input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #313131;
+  }
+  .signpContainer .container .inputsContainer .signUpBtn {
+    width: 82%;
+    padding: 15px;
+    border: none;
+    background-color: #ff642c;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .signpContainer .container .inputsContainer .loginBtn {
+    margin-top: 8px;
+    width: 82%;
+    padding: 15px;
+    border: 1px solid #ff642c;
+    background-color: rgb(255, 255, 255);
+    color: #ff642c;
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=SignUpComp.css.map */

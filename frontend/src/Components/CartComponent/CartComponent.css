@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.cartComponentContainer {
+  padding: 0 256px;
+  margin-top: 128px;
+  margin-bottom: 128px;
+}
+.cartComponentContainer .cartContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.cartComponentContainer .cartProduct {
+  display: flex;
+  border: 1px solid rgb(187, 187, 187);
+  margin-top: 8px;
+}
+.cartComponentContainer .cartProduct img {
+  padding: 5px;
+  width: 250px;
+}
+.cartComponentContainer .cartProduct .productName {
+  font-size: 28px;
+  margin: 0;
+  margin-top: 12px;
+  margin-left: 8px;
+  width: 100%;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .cartIncAndDecContainer {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .cartIncAndDecContainer button {
+  background-color: #ffffff;
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .cartIncAndDecContainer button:hover {
+  cursor: pointer;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .cartIncAndDecContainer .cartDecrementBtn {
+  border: none;
+  padding: 8px;
+  background-color: #313131;
+  color: #ffffff;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .cartIncAndDecContainer .cartIncrementBtn {
+  border: none;
+  padding: 8px;
+  background-color: #313131;
+  color: #ffffff;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .delBtn {
+  margin-top: 12px;
+  margin-right: 12px;
+  background-color: #313131;
+  height: 40px;
+  width: 50px;
+  min-width: 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #ffffff;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .delBtn:hover {
+  cursor: pointer;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .productDesc {
+  margin-left: 12px;
+  font-size: 13px;
+  width: 90%;
+}
+.cartComponentContainer .cartProduct .cartInternalProductDetails .productPrice {
+  margin-left: 12px;
+  font-size: 20px;
+}
+.cartComponentContainer .paymentContainer button {
+  width: 100%;
+  background-color: #313131;
+  padding: 15px;
+  color: #ffffff;
+  border: none;
+  margin-top: 12px;
+}
+.cartComponentContainer .paymentContainer button:hover {
+  cursor: pointer;
+}
+.cartComponentContainer .billingContainerMain {
+  border: 1px solid rgb(198, 198, 198);
+  padding: 0 64px;
+  margin-top: 12px;
+}
+.cartComponentContainer .billingContainerMain .billingContainerPrice, .cartComponentContainer .billingContainerMain .billingContainerDelivery, .cartComponentContainer .billingContainerMain .billingContainerTax {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -14px;
+}
+@media screen and (max-width: 1024px) {
+  .cartComponentContainer {
+    padding: 0 128px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cartComponentContainer {
+    padding: 0 64px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .cartComponentContainer {
+    padding: 0 12px;
+  }
+  .cartComponentContainer .cartProduct {
+    flex-direction: column;
+  }
+  .cartComponentContainer .cartProduct img {
+    width: 96%;
+  }
+  .cartComponentContainer .cartProduct .cartInternalProductDetails {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .cartComponentContainer .cartProduct .cartInternalProductDetails .cartIncAndDecContainer {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: start;
+  }
+  .cartComponentContainer .cartProduct .cartInternalProductDetails .productDesc {
+    margin-left: 12px;
+    font-size: 13px;
+    width: 90%;
+  }
+  .cartComponentContainer .cartProduct .cartInternalProductDetails .productPrice {
+    margin-left: 12px;
+    font-size: 20px;
+  }
+  .cartComponentContainer .billingContainerMain {
+    border: 1px solid rgb(198, 198, 198);
+    padding: 0 32px;
+    margin-top: 12px;
+  }
+  .cartComponentContainer .billingContainerMain .billingContainerPrice, .cartComponentContainer .billingContainerMain .billingContainerTax, .cartComponentContainer .billingContainerMain .billingContainerDelivery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -14px;
+  }
+}/*# sourceMappingURL=CartComponent.css.map */

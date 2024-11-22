@@ -1,0 +1,300 @@
+@import '../variables';
+
+.loginContainer{
+    padding: 0 250px;
+    margin-top: 128px;
+    
+
+    .container{
+        // padding: 30px;
+        border: 2px solid $textColor;
+
+        // background-color: $primaryColor;
+        display: flex;
+        // justify-content: space-between;
+
+        .imageContainer{
+
+            // padding: 0 30px;
+            img{
+             max-width: 400px;
+             height: 100%;    
+            }
+        }
+
+        .inputsContianer{
+            width: 100%;
+            padding-left: 64px;
+            padding-bottom: 24px;
+            // background-color: $primaryColor;
+            .successMessageContainer {
+                // position: fixed;
+                // top: 20px;
+                // left: 50%;
+                // transform: translateX(-50%);
+                width: 200px;
+                margin-bottom: 10px;
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                
+              }
+              .successMessage{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+              .successMessage p {
+                margin: 0;
+              }
+              
+              .closeButton {
+                background-color: #fff;
+                color: #4caf50;
+                border: none;
+                padding: 4px 5px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+              }
+
+            h3{
+                color: $textColor;
+            }
+
+            .inputsCredentaialsContainer{
+                // padding:0 10px;
+                .usernameAndPasswordContaienr{
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+
+                    input{
+                        padding: 10px;
+                        border: none;
+                        border-bottom: 1px solid $textColor; 
+                    }
+
+                    label{
+                        font-size: map-get($fontSize, small );
+                        margin-bottom: 4px;
+                        font-weight: 600;
+                        
+
+                    }
+                }
+
+                .passwordContainer{
+                    margin-top: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+
+                    input{
+                        padding: 10px;
+                        border: none;
+                        border-bottom: 1px solid $textColor; 
+                                       }
+
+                    label{
+                        font-size: map-get($fontSize, small );
+                        margin-bottom: 4px;
+                        font-weight: 600;
+
+                    }
+                }
+
+                .buttonsContainer{
+                    .credButtonsContainer{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+                
+            }
+
+            .loginBtn{
+                width: 80%;
+                margin-top: 32px;
+                padding: 15px;
+                border: none;
+                background-color: $primaryColor;
+                color: $secondaryColor;
+                cursor: pointer;
+            }
+
+            .forgotBtn{
+                border: none;
+                color: $primaryColor;
+                background-color: $secondaryColor;
+                margin-top: 8px;
+                cursor: pointer;
+                width: 80%;
+            }
+           
+            .signup{
+                width: 80%;
+                padding: 10px;
+                border: 1px solid $primaryColor;
+                background-color: $secondaryColor;
+                color: $primaryColor;
+                margin-top: -24px;
+                cursor: pointer;
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .loginContainer{
+      padding: 0 64px;
+      
+    }
+}
+
+@media screen and (max-width:768px) {
+    .loginContainer{
+      padding: 0 32px;
+      
+      .container{
+        // padding: 30px;
+        border: 2px solid $textColor;
+
+        // background-color: $primaryColor;
+        display: flex;
+        // justify-content: space-between;
+
+        .imageContainer{
+
+            // padding: 0 30px;
+            img{
+             max-width: 300px;
+             height: 100%;    
+             object-fit: cover;
+            }
+        }
+    }
+
+    }
+}
+
+@media screen and (max-width:425px) {
+    .loginContainer{
+      padding: 0 16px;
+      
+      .container{
+        // padding: 30px;
+        border: 2px solid $textColor;
+
+        // background-color: $primaryColor;
+        display: flex;
+        // justify-content: space-between;
+
+        .imageContainer{
+
+            // padding: 0 30px;
+            img{
+                display: none;
+             max-width: 400px;
+             height: 100%;    
+            }
+        }
+
+        .inputsContianer{
+            width: 100%;
+            padding:8px;
+            // padding-left: 64px;
+            // background-color: $primaryColor;
+
+            h3{
+                color: $textColor;
+            }
+
+            .inputsCredentaialsContainer{
+                // padding:0 10px;
+                .usernameAndPasswordContaienr{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    input{
+                        padding: 10px;
+                        border: none;
+                        border-bottom: 1px solid $textColor; 
+                    }
+
+                    label{
+                        font-size: map-get($fontSize, small );
+                        margin-bottom: 4px;
+                        font-weight: 600;
+                        
+
+                    }
+                }
+
+                .passwordContainer{
+                    margin-top: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    input{
+                        padding: 10px;
+                        border: none;
+                        border-bottom: 1px solid $textColor; 
+                                       }
+
+                    label{
+                        font-size: map-get($fontSize, small );
+                        margin-bottom: 4px;
+                        font-weight: 600;
+
+                    }
+                }
+
+                .buttonsContainer{
+                    .credButtonsContainer{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+                
+            }
+
+            .loginBtn{
+                width: 100%;
+                margin-top: 32px;
+                padding: 15px;
+                border: none;
+                background-color: $primaryColor;
+                color: $secondaryColor;
+                cursor: pointer;
+            }
+
+            .forgotBtn{
+                border: none;
+                color: $primaryColor;
+                background-color: $secondaryColor;
+                margin-top: 8px;
+                cursor: pointer;
+                width: 100%;
+            }
+           
+            .signup{
+                width: 100%;
+                padding: 10px;
+                border: 1px solid $primaryColor;
+                background-color: $secondaryColor;
+                color: $primaryColor;
+                margin-top: -24px;
+                cursor: pointer;
+
+            }
+        }
+    }
+
+    }
+}

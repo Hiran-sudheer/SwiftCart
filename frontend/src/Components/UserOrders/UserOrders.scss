@@ -1,0 +1,117 @@
+@import '../variables';
+
+.ordersContairsMain{
+    padding: 20px;
+
+    .productOrdersContainer{
+
+        margin-top: 12px;
+        border: 1px solid $textColor;
+
+        .productOrderDetails{
+           
+            display: flex;
+
+            .imageContainer{
+                img{
+                    width: 200px;
+                }
+    
+    
+            }
+
+            .productDetails{
+                margin-left: 12px;
+                .productName{
+                    font-size: map-get($fontSize, large );
+                    margin-top: 4px;
+
+                }
+                .productDesc{
+                    font-size: map-get($fontSize, small );
+                    margin-top: -12px;
+                    
+                }
+                .productPrice{
+                    font-size: map-get($fontSize, medium );
+                    margin-top: -8px;
+                    
+                }
+
+                .productUnit{
+                    font-size: map-get($fontSize, small );
+                    margin-top: -8px;
+
+                }
+            }
+        }
+
+        .statusContainer{
+            padding: 10px;
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            // flex-direction: column;
+            .sphere{
+                border-radius: 25px;
+                width: 15px;
+                height: 15px;
+                // background-color: green;
+            }
+
+            .dateAndStatus{
+                color: green;
+                margin-left: 12px;
+            }
+        }
+        
+
+    }
+}
+
+@media screen and (max-width:425px) {
+    .ordersContairsMain{
+
+        .productOrderDetails{
+           
+            display: flex;
+            flex-direction: column;
+
+            .imageContainer{
+                img{
+                    width: 100%;
+                    min-width: 100%;
+                }
+    
+    
+            }
+
+            .productDetails{
+                margin-left: 12px;
+                .productName{
+                    font-size: map-get($fontSize, medium ) !important;
+                    margin-top: 4px;
+
+                }
+                .productDesc{
+                    font-size: map-get($fontSize, small );
+                    margin-top: -12px;
+                    
+                }
+                .productPrice{
+                    font-size: map-get($fontSize, medium );
+                    margin-top: -8px;
+                    
+                }
+
+                .productUnit{
+                    font-size: map-get($fontSize, small );
+                    margin-top: -8px;
+
+                }
+            }
+        }
+
+      
+    }
+}

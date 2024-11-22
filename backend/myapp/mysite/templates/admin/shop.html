@@ -1,0 +1,452 @@
+{% extends "admin/main/base.html" %}
+{% block title %}Shop{% endblock %}
+
+{% block content %}
+
+    <meta charset="UTF-8">
+    <section class="content-header">
+        <h1>
+            SHOP MANAGEMENT
+        </h1>
+        <ol class="breadcrumb">
+            <li class="text-right"><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Shops</li>
+        </ol>
+        
+    </section>
+    <div class="content-wrapper"> 
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            FILTER SHOP
+                            <span> </span>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form" action="{% url 'search_shop' %}" method="get" value="{{request.GET.q}}" >
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Shop types</label>
+                                            
+                                            <select name="shop_type_id" id="shop_type_id" class="form-control select2">
+                                               
+                                                <option value="">Choose Shop type</option>
+                                                {% for shoptype in shoptypes %}
+                                            <option value="{{shoptype.id}}">{{shoptype.name}}</option>
+                                            {% endfor %} 
+                                        
+                                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="shop_name">Shop name</label>
+                                        <input type="text" name="q" id="shop_name" value="" autocomplete="off" class="form-control" placeholder="Shop Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="shop_status">Status</label>
+                                        <select name="shop_status" id="shop_status" class="form-control">
+                                            <option value="1">Active</option>
+                                            <option value="2">Block</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="box-footer">
+                                    <div class="row">
+                                        <div class="col-lg-11">
+                                            <button type="submit"  style="margin-right: 15px; background-color: #2672ec; color:#fff;"  class="btn btn-microsoft pull-right" fdprocessedid="chf5q">&nbsp;&nbsp;&nbsp; Search &nbsp;&nbsp;&nbsp;</button>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <a onclick="resetfilter()" class="btn btn-danger pull-right">&nbsp;&nbsp;&nbsp;&nbsp; Reset &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </section>
+                                </div>
+                        
+                                <section class="content">
+                                    <div class="panel panel-default">
+                                        <div class="pull-right" style="padding-top: 4px; padding-right: 8px;">
+                                            <button class="btn btn-success btn-lg-sm" onclick="window.location.href='{% url "addShop" %}';"> + New Shop</button>
+                                        </div>
+                                        <div class="panel-heading">
+                                            SHOPS LIST
+                                            <span></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table width="" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                <thead>
+                                                 
+                                                    <tr>
+                                                        <th style="width: 3%">#</th>
+                                                        <th colspan="3" style="width: 83%">Shop info</th>
+                                                        <th style="width: 10%">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                        
+                                                    
+                        
+                                                    
+                                                    {% for shop in shops %} 
+                                                    <tr>
+                                                        <td style="width: 5%">{{forloop.counter}}</td>
+                                                        <td style="width:30%;height:119px;">
+                        
+                                                            <b>Name (eng):</b>{{ shop.Shopname }}<br>
+                                                            <b>Name (Ar):</b>{{ shop.Shopnamelocal }}
+                                                            {{ shop.arabic_name }} <br>
+                                                            <b>Shop Id:</b> <b class="text-red">({{ shop.id }}) </b><br>
+                                                            <b>Type:</b> {{ shop.shop_type }} {{ shop.info }}
+                                                        </td>
+                                                         
+                        
+                                                        <td style="width:25%">
+                                                            <b>URL:&nbsp;</b>
+                                                            <a href="//buy.whatscart.app/{{shop.ShopURL}}"target="_blank">{{shop.ShopURL}}</a><br>
+                        
+                                                            <b>ShopCode:&nbsp;&nbsp;</b>{{ shop.ShopCode }}<br>
+                                                            <b>Username:&nbsp;&nbsp;</b>{{ shop.Contactnumber }}<br>
+                                                            <b>Whatsapp#:&nbsp;&nbsp;</b>{{ shop.WhatsappNumber }}<br>
+                                                            <b>Allowed items:&nbsp;&nbsp;</b>{{ shop.TotalItems }} Nos<br>
+                                                        </td>
+                        
+                        
+                                                           
+                                                            <td style="width:20%">
+                                                                <b>Created On:&nbsp;</b>{{ shop.created_at }}<br>
+                                                                <b>Updated On:&nbsp;&nbsp;</b>{{ shop.updated_at }}<br>
+                                                                <!-- <b>{{shop.Theme}}</b> -->
+                                                                
+                                                               
+                        
+                        
+                        
+                        
+                        
+                                                                
+                                                            
+                                                               <!-- {% if shop.days_left <= 0 %}
+                                                                <button class="btnss label bg-red">Expired</button><br>
+                                                              
+                                                                <p style="color: grey;">expired on({{shop.ExpiredDate}})</p>
+                                                                {% else %}
+                                                            </a> <label class="label bg-green-gradient"style="background-color: green;">{{ shop.ExpiredDate }} </label>{{shop.days_left}}day(s) left
+                                                            <br>
+                                                            {% endif %} -->
+                        
+                        
+                                                            {% if shop.days_left <= 0 %}  
+                                                             
+                                                            <button class="btnss label bg-red" data-toggle="modal" data-target="#expiredModal{{shop.id}}">Expired</button><br> 
+                                                              
+                                                            <p style="color: grey;">expired on ({{ shop.ExpiredDate }})</p> 
+                                                            <div class="modal fade" id="expiredModal{{shop.id}}" tabindex="-1" role="dialog" aria-labelledby="expiredModalLabel{{shop.id}}" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header" style="background: linear-gradient(to right, #ff6f61, #f33); color: white;">
+                                                                            <a style="font-size: 18px; font-weight: bold; color: rgb(29, 23, 23);">Renew Subscription!</a>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body" style="height: 260px;">
+                                                                          
+                                                                            <form action="{% url 'renew_subscription' shop.id %}" method="post">
+                                                                                {% csrf_token %}
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="id_expired_date">Expired Date <span class="required-color">*</span></label>
+                                                                                            <select name="expired_date" id="expired_date" class="form-control" style="width: 550px;" onchange="updateEndDate()">
+                                                                                                <option value="1">1 Month</option>
+                                                                                                <option value="2">2 Month</option>
+                                                                                                <option value="4">4 Month</option>
+                                                                                                <option value="6">6 Month</option>
+                                                                                                <option value="10">10 Month</option>
+                                                                                                <option value="12">1 Year</option>
+                                                                                                <option value="60">1-5 Year</option>
+                                                                                                <option value="24">2 Year</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="total_items">Total Items <span class="required-color">*</span></label>
+                                                                                            <input type="number" name="total_items" autocomplete="off" class="form-control" style="width: 550px;" id="total_items" required="" data-parsley-pattern-message="This is not a valid number" data-parsley-trigger="keyup" placeholder="Total Items" fdprocessedid="aqvepz">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                            
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group right" style="padding-top: 40px; float: right">
+                                                                                            <input type="hidden" name="shop_id" id="shop_id" />
+                                                                                            <a class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp; Close &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                                                            <button type="submit" class="btn btn-success">&nbsp;&nbsp;&nbsp; Save &nbsp;&nbsp;&nbsp;</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                            
+                                                            {% else %} 
+                                                        </a> <label class="label bg-green-gradient"style="background-color: green;">{{ shop.ExpiredDate }} </label>{{shop.days_left}}day(s) left 
+                                                            <!-- The rest of your code for the non-expired case --> 
+                                                            <br>
+                                                            
+                                                            {% endif %}
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                                                            <br>
+                                                            {% if shop.is_active %}
+                                                            <label class="label bg-blue">Active</label>
+                                                                    </td>
+                                                                    {% else %}
+                                                                    <label class="label bg-red">Blocked</label></td>
+                                                                       {% endif %}
+                                                                <td style="width:20%">
+                                                                
+                                                                    <a class="btn label-warning btn-xs" href="{% url 'assigncategory' shop.id  shop.shop_type %}" title="category(s)" style="background-color: #f39c12; color: #fff;"><i class="fa fa-sitemap"></i> Category(s)</a>
+                        
+                                                                    <a class="btn label-warning btn-xs" href="{% url 'editshop' shop.id %}" title="Edit Fika" style="background-color: #f39c12; color: #fff;"><i class="fa fa-edit"></i> Edit</a>
+                                                                    
+                                                                    {% if shop.is_active %}
+                                                                    <a class="btn btn-danger pull-right btn-xs"  href="{% url 'block_shop' shop.id  %}" style="background-color:#d73925; color: #fff; width: 100%; margin-top: 2px;" title="Block " fdprocessedid="595icf"><i class="fa fa-ban"></i> Block</a>
+                                
+                                                                    {% else %}
+                                                                    <a class="btn btn-success pull-right btn-xs" style="float: left;display: block; width: 100%;" href="{% url 'activate_shop' shop.id  %}" title=""><i class="fa fa-edit"></i> active</a>
+                                                                    {% endif %}
+                                                                    
+                                                                    <button class="btn label-info btn-xs" data-toggle="modal" data-target="#changePasswordModal{{shop.id}}" style="background-color: #00c0ef; color: #fff; float: left; display: block; width: 100%; margin-top: 3px;">
+                                                                        <i class="fa fa-eye-slash"></i> Change Password
+                                                                      </button>
+                                                                      <div class="modal fade" id="changePasswordModal{{shop.id}}" role="dialog">
+                                                                        <div class="modal-dialog" role="document">
+                                                                          <div class="modal-content">
+                                                                            
+                                                                            <div class="modal-header" style="background: linear-gradient(to bottom, #0073b7, #0089db) !important;">
+                                                                                <a style="font-size: 18px; font-weight: bold; color: white;">Change Password</a>
+                                                                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                                                                
+                                                                            </div>
+                                                                           
+                                                                           
+                                                                              <div class="modal-body">
+                                                                                <form action="" method="post">
+                                                                                  <!-- Your form fields go here -->
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="c_shop_name">Shop Name</label>
+                                                                                            <input type="text" disabled name="c_shop_name" autocomplete="off" class="form-control" id="c_shop_name" placeholder="{{ shop.Shopname }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="c_shop_url">Shop URL</label>
+                                                                                            <input type="text" disabled name="c_shop_url" autocomplete="off" class="form-control" id="c_shop_url" placeholder="{{shop.ShopURL}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="c_shop_type_name">Shop Type</label>
+                                                                                            <input type="text" disabled name="c_shop_type_name" autocomplete="off" class="form-control" id="c_shop_type_name" placeholder="{{ shop.shop_type }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="c_shop_code">Shop Code</label>
+                                                                                            <input type="text" disabled name="c_shop_code" autocomplete="off" class="form-control" id="c_shop_code" placeholder="{{ shop.ShopCode }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="password">Password <span class="required-color">*</span></label>
+                                                                                            <input type="text" name="password" autocomplete="off" class="form-control" id="password" required="" data-parsley-pattern-message="This is not a password" data-parsley-trigger="keyup" placeholder="New Password">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                  <!-- ... -->
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                      <div class="form-group right" style="padding-top: 25px; float: right">
+                                                                                        <input type="hidden" name="c_shop_id" id="c_shop_id" />
+                                                                                        <a class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp; Close &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                                                        <button type="submit" class="btn bg-blue-gradient" style="background: linear-gradient(to bottom, #0073b7, #0089db); color: white;">
+                                                                                            &nbsp;&nbsp;&nbsp; CHANGE PASSWORD &nbsp;&nbsp;&nbsp;
+                                                                                        </button>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </form>
+                                                                              </div>
+                                                                            </section>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                      
+                                                                    
+                                                                </td>
+                                                                 </tr>  
+                                                                   
+                                                 {% endfor %}
+                                                </tbody>
+                                                
+                                            </table>
+                                                 <!-- <div class="modal-body">       
+                                                                                <select class="form-select form-select-sm w-100" style="width:528px;" aria-label="Small select example"> 
+                                                                              
+                                                                                    <option selected>Open this select menu</option>
+                                                                                    <option value="1">One</option>
+                                                                                    <option value="2">Two</option>
+                                                                                    <option value="3">Three</option> -->
+                                                                                  
+                                                                                    
+                                                                                                    
+                                                                                                    <script>
+                                                                                                        function updateEndDate() {
+                                                                                                            var select = document.getElementById("expired_date");
+                                                                                                            var selectedValue = select.options[select.selectedIndex].value;
+                                                                                                            var daysInMonth = 30; // This is an approximation; adjust as needed
+                                                                                                
+                                                                                                            var totalDays = selectedValue * daysInMonth;
+                                                                                                
+                                                                                                            var endDate = new Date();
+                                                                                                            endDate.setDate(endDate.getDate() + totalDays);
+                                                                                                
+                                                                                                            var formattedEndDate = endDate.toDateString();
+                                                                                                            // Display or use the formattedEndDate as needed
+                                                                                                        }
+                                                                                                    </script>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    
+
+                                                                                 <!-- change password    -->
+
+                                                                                  
+                                                                                  <!-- Modal -->
+                                                                                 
+                                                                                  <!-- Bootstrap JavaScript library -->
+                                                                                  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                                                                                  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                                                                                  
+                                                                                  <!-- Script to handle modal -->
+                                                                                  <script>
+                                                                                    $(document).ready(function () {
+                                                                                      $('#changePasswordModal').modal({
+                                                                                        show: false
+                                                                                      });
+                                                                                  
+                                                                                      // Trigger the modal when the button is clicked
+                                                                                      $('#changePasswordModalTrigger').on('click', function () {
+                                                                                        $('#changePasswordModal').modal('show');
+                                                                                      });
+                                                                                    });
+                                                                                  
+                                                                                    function showPasswordPopup() {
+                                                                                      $('#changePasswordModal').modal('show');
+                                                                                    }
+                                                                                  
+                                                                                    function closePasswordPopup() {
+                                                                                      // Add your logic to close the modal or do any necessary cleanup
+                                                                                      $('#changePasswordModal').modal('hide');
+                                                                                    }
+                                                                                  </script>
+                                                                                
+                                                                                    
+
+
+
+
+                                                                                   
+
+                      
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" style="text-align: right;">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">begin</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    
+                    {% for n in page_obj.paginator.page_range %}
+                        {% if page_obj.number == n %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ n }}<span class="sr-only">(current)</span></span>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">end</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+                </div>
+            </div>
+         </section>
+         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+         
+         <script>
+             $(document).ready(function(){
+                 $('.btnss').hover(function(){
+                     $(this).text("Renew");
+                 }, function() {
+                     $(this).text("Expired");
+                 });
+             });
+         </script>
+        
+       
+       
+        {% endblock %}
+        

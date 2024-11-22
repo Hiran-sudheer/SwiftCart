@@ -1,0 +1,244 @@
+{% extends "admin/main/base.html" %}
+{% block title %}Shop{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://buy.whatscart.app/app/webres/admin/dist/css/jquery-ui.css">
+    <script src="https://buy.whatscart.app/app/webres/admin/dist/js/jquery-ui.js"></script>
+    <section class="content-header">
+        <h1>
+            SHOP MANAGEMENT
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Add Shop</li>
+        </ol>
+    </section>
+    <div class="content-wrapper"> 
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                ADD/EDIT SHOP
+                            </div>
+                            <div class="box-body">
+                                 <form method="post" enctype="multipart/form-data">
+
+
+                                 
+                                  
+                                     {% csrf_token %}
+                                     {{ form.shop_id }}
+                                    <!-- {% include 'admin/main/form_temp.html' %} -->
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for style="
+                                            margin-left: -12px;">Shop Name</label>
+                                            {{ form.Shopname }}
+                                            {{ form.Shopname.errors }}
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                              <label for="{{ form.Shopnamelocal.id_for_label }}">Shop Name Local</label>
+                                              {{ form.Shopnamelocal }}
+                                              {{ form.Shopnamelocal.errors }}
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                  <label for style="margin-left: 5px;">Shop Code</label>
+                                                  {{ form.ShopCode }}
+                                                  {{ form.Shopnamelocal.errors }}
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label for style="
+                                                        margin-left: -12px;">Shop Address</label>
+                                                        {{ form.ShopAddress }}
+                                                       
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                          <label for="{{ form.Currency.id_for_label }}">Currency</label>
+                                                          {{ form.Currency }}
+                                                         
+                                                        </div>
+                                                      
+
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-4">
+                                                                  <label  for style="
+                                                                  margin-left: 3px;">
+                                                                   
+                                                                    Contact Number(Username)</label>
+                                                                  {{ form.Contactnumber}}
+                                                                  {{ form.Contactnumber.errors }}
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-4">
+                                                                      <label for style="
+                                                                      margin-left: -12px">
+                                                                       
+                                                                Whatsapp Number(With Country Code)</label>
+                                                                      {{ form.WhatsappNumber}}
+                                                                      {{ form.WhatsappNumber.errors }}
+                                                                    </div>
+
+                                                                    <div class="form-row">
+                                                                        <div class="form-group col-md-4">
+                                                                          <label for="{{ form.shop_type.id_for_label }}">
+                                                                           
+                                                                            Shop Type</label>
+                                                                          {{ form.shop_type}}
+                                                                          {{ form.shop_type.errors }}
+                                                                        </div>
+
+                                                                        
+                                                                    <div class="form-row">
+                                                                        <div class="form-group col-md-4">
+                                                                          <label for style="
+                                                                          margin-left: 3px">
+                                                                           
+                                                                            Shop Logo(494x86)</label>
+                                                                          {{ form.ShopLogo}}
+                                                                      
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="form-group col-md-4">
+                                                                              <label for style="
+                                                                              margin-left: -12px">
+                                                                               
+                                                                                Shop URL</label>
+                                                                              {{ form.ShopURL}}
+                                                                          
+                                                                            </div>
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col-md-4">
+                                                                                  <label for="{{ form.SeoTitle.id_for_label }}">
+                                                                                   
+                                                                                    Seo Title</label>
+                                                                                  {{ form.SeoTitle}}
+                                                                              
+                                                                                </div>
+                                                                                <div class="form-row">
+                                                                                    <div class="form-group col-md-4">
+                                                                                      <label for style="
+                                                                                     margin-left: 5px;">
+                                                                                       
+                                                                                        Expired Date</label>
+                                                                                      {{ form.ExpiredDate}}
+                                                                                  
+                                                                                    </div>
+
+                                                                                    <div class="form-row">
+                                                                                        <div class="form-group col-md-4">
+                                                                                          <label for style="
+                                                                                          margin-left: -12px">
+                                                                                            Total Items </label>
+                                                                                          {{ form.TotalItems }}
+                                                                                      
+                                                                                        </div>
+
+                                                                                        <div class="form-row">
+                                                                                            <div class="form-group col-md-4">
+                                                                                              <label for="{{ form.Seoimages.id_for_label }}">
+                                                                                                Seo Image </label>
+                                                                                              {{ form.Seoimages }}
+                                                                                          
+                                                                                            </div>
+                                                                                            <div class="form-row">
+                                                                                                <div class="form-group col-md-4">
+                                                                                                <label for style="
+                                                                                                margin-left: 5px;">Theme</label>
+                                                                                              
+                                                                                                {{ form.Theme}}
+                                                                                                {{ form.Shopnamelocal.errors }}
+                                                                                               <b style="
+                                                                                                margin-left: 4px;">(Note:</b>Banner image is needed only for hero theme )
+                                                                                              </div>
+                                                                                       
+
+                              
+                                                                                          
+                                                                                                <label for="{{ form.SeoDescription.id_for_label }}" class="mb-2">SeoDescription</label>
+                                                                                                {{ form.SeoDescription }}
+                                                                                            </div> 
+                                                                <div class="form-row">
+                                                                    
+                                                                      <label for="{{ form.PixelCode.id_for_label }}">PixelCode</label>
+                                                                      {{ form.PixelCode}}
+                                                                      
+                                                                    </div>
+                                                                    <div class="form-row">
+                                                                    
+                                                                        <label for="{{ form.PixelCode.id_for_label }}"> City Names </label>
+                                                                        {{ form.CityNames}}
+                                                                        
+                                                                      </div>
+                                                                   
+                                                                      <div class="form-row">
+                                                                        <div class="form-group col-md-4">
+                                                                            <label for style="
+                                                                            margin-left: -12px;">Banner 1</label>
+                                                                            {{ form.Banner1 }}
+                                                                            {{ form.Banner1.errors }}
+                                                                        </div>      
+                                                                        <div class="form-row">
+                                                                            <div class="form-group col-md-4">
+                                                                                <label for style="
+                                                                                margin-left: -12px;">Banner 2</label>
+                                                                                {{ form.Banner2 }}
+                                                                                {{ form.Banner2.errors }}
+                                                                            </div> 
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col-md-4">
+                                                                                    <label for style="
+                                                                                    margin-left: -12px;">Banner 3</label>
+                                                                                    {{ form.Banner3 }}
+                                                                                    {{ form.Banner3.errors }}
+                                                                                </div> 
+                                                                              
+                                                               
+                                               
+                                    
+                                    <!-- Add your form fields here -->
+                                    <div class="form-group">
+                                        
+                                            {% for Currency in Currencyname %}
+                                                <option value="{{ Currency.pk }}">{{ Currency.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                     {% for Theme in Themename %}
+                                                <option value="{{ Theme.pk }}">{{ Theme.name }}</option>
+                                            {% endfor %}
+
+                                            
+                                        </select>
+                                    </div>
+                                    
+                                    <span class="required-color" style="color: red;">*</span> 
+
+                                    (<b>Note:</b> Default password is 
+                                    <b style="color: red;">123456x)</b>
+
+                                  
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary"style="
+                                        /* margin-right: -21px; */
+                                        margin-left: 966px;">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

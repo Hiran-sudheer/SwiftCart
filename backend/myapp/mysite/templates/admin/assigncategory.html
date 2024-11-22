@@ -1,0 +1,247 @@
+{% extends "admin/main/base.html" %}
+
+{% block title %}Assign Category{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> 
+
+    <section class="content-header">
+        <h3>
+            ASSIGN CATEGORY
+        </h3>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Assign Category</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="panel panel-default">
+                        <div class="box-body" id="app">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                              
+                                        <h4 id="tags" class="text-blue"><b>CATEGORY LIST</b></h4>
+                                        <hr>
+                                        <div class="row" id="category" name="Categoryid">
+                                          
+                                         {% for category in categorys %}
+                                                <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
+                                                    <button id="{{ category.id }}" onclick="assigncategory('{{ category.id }}', '{{ category.name }}')" class="btn bg-green">{{ category.name }}</button>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                       
+                                        <h4 id="tags" class="text-blue"><b>ASSIGNED CATEGORY LIST</b></h4>
+                                       
+                                        <hr>
+                                     
+                                        <div class="row" id="AssignedCategory">
+                                        
+                                             </div>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="box-footer" style="
+                            padding-bottom: 57px;">
+                              {% csrf_token %}
+                             
+                              <input type="hidden" id="shopid" value="{{ newrec.id }}"/>
+                              <input type="hidden" id="shoptype" value="{{ newrec.shop_type }}"/>
+                             <!-- <input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}"> -->
+                             <button onclick="saveData(); return false;" id="btn_save" type="submit" class="btn bg-blue text-center pull-right btn_submit">
+                                Save
+                            </button>
+                            
+                        </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+<section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="panel panel-default">
+                     
+                        <div class="box-body" id="app">
+                             
+                         
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="margin: 0px; padding: 0px;">
+                                        <span style="color: grey; font-size: 17px;">SHOP NAME:</span>
+                                        <span style="font-weight: bold; color: red;">{{ newrec.Shopname }}</span>
+                                    </h3>
+                                    <a target="_blank" href="//buy.whatscart.app/{{ newrec.ShopURL }}">
+                                        <span style="color: grey; font-size: 14px;">URL: </span>
+                                        <span style="font-weight: bold; font-size: 17px;">{{ newrec.ShopURL }}</span>
+                                    </a>
+                                    <p style="margin: 0px; padding: 0px;">
+                                        <span style="color: grey; font-size: 14px;">SHOP TYPE: </span>
+                                        <span style="font-weight: bold; font-size: 17px;">{{ newrec.shop_type }}</span>
+                                    </p>
+                                    <p >
+                                        <span style="color: grey; font-size: 14px;">SHOP ADDRESS: </span>
+                                        <span style="font-weight: bold; font-size: 17px;">{{ newrec.ShopAddress }}</span>
+                                    </p>
+                                  
+                                </div>
+                                
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+   
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Inside your template -->
+
+<script>
+  
+  $(document).on('click', '#category button', function () {
+        // Detach the clicked button from the category section
+        var clickedButton = $(this).detach();
+       
+        // Move the detached button to the AssignedCategory div
+        clickedButton.appendTo('#AssignedCategory');
+
+        // Modify the style of the moved button
+        clickedButton.removeClass('btn bg-green').addClass('btn bg-maroon');
+    });
+
+
+    function saveData() {
+    console.log('Button clicked!');
+    var buttonIds = [];
+
+   $('#AssignedCategory .btn').each(function () {
+    buttonIds.push($(this).attr('id'));
+});
+
+    var AssignedCategory = buttonIds.join(', ');
+   
+    
+    var shoptype = $('#shoptype').val();
+    var shop_id = $('#shopid').val()
+    
+    alert(AssignedCategory);
+    alert('shopid=' + shop_id + ", AssignedCategory=" + AssignedCategory + ", shoptype=" + shoptype);
+
+
+        
+
+
+
+
+    
+  
+$.ajax({
+    type: 'POST',
+    url: 'http://127.0.0.1:8000/admin/save_assigned_category',
+    data: { "shop_id":shop_id , "AssignedCategory": AssignedCategory, "csrfmiddlewaretoken": "{{csrf_token}}" },
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    success: function(response) {
+            if (response.success) {
+
+
+   alert('Variants assigned successfully!');
+// You can perform additional actions after a successful assignment
+   } else {
+   alert('Error :' + response.message);
+}
+
+},
+        error: function (xhr, status, error) {
+                alert('Error: ' + status + ' ' + error + ' ' + xhr.status + ' ' + xhr.statusText);
+            }
+     });
+ }
+
+
+
+
+
+$(document).ready(function () {
+    // Call fetchAssignedCategory when the document is ready
+    fetchAssignedCategory();
+});
+
+function fetchAssignedCategory() {
+    var shopId = $('#shopid').val()
+    // var assignedCategory = $('#AssignedCategory').val().split(',');  // Split the comma-separated string into a list
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1:8000/admin/fetch_assigned_category/',
+        data: { 'shop_id': shopId },
+        dataType: 'json',
+        success: function (response) {
+            // Clear existing buttons
+            $('#AssignedCategory').empty();
+            // Append buttons to the 'AssignedCategory' container
+            $.each(response.data, function (i, value) {
+                $('#AssignedCategory').append($('<button/>').attr("id", value.id).attr("class", "btn bg-maroon").attr("onclick", "clickAssignedCategoryBtn(this)").text(value.name));
+            });
+        },
+        error: function (xhr, status, error) {
+            alert('Error fetching assigned category: ' + status + ' ' + error + ' ' + xhr.status + ' ' + xhr.statusText);
+        }
+    });
+
+
+    
+}
+ function clickAssignedCategoryBtn(item) {
+    // Change button style
+     $(item).removeClass('btn bg-green').addClass('btn bg-maroon');
+
+     // Add a new click event handler calling the updated function
+     $(item).off('click').on('click', function () {
+        clickCategoryBtn(this);
+     });
+
+     // Update the item in the element with ID "AssignedCategory" using jQuery
+     $('#AssignedCategory button[id="' + $(item).attr('id') + '"]').replaceWith(item);
+ }
+
+function clickAssignedCategorysBtn(item) {
+    // Change button style
+    $(item).removeClass('btn bg-maroon').addClass('btn bg-green');
+
+    // Move the button back to the 'Category' section
+    $(item).detach().appendTo('#category');
+}
+
+$(document).on('click', '#AssignedCategory button', function () {
+    clickAssignedCategorysBtn(this);
+});
+
+ </script>
+
+{% endblock %}

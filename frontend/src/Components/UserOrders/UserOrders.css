@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.ordersContairsMain {
+  padding: 20px;
+}
+.ordersContairsMain .productOrdersContainer {
+  margin-top: 12px;
+  border: 1px solid #313131;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails {
+  display: flex;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails .imageContainer img {
+  width: 200px;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails .productDetails {
+  margin-left: 12px;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails .productDetails .productName {
+  font-size: 28px;
+  margin-top: 4px;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails .productDetails .productDesc {
+  font-size: 13px;
+  margin-top: -12px;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails .productDetails .productPrice {
+  font-size: 20px;
+  margin-top: -8px;
+}
+.ordersContairsMain .productOrdersContainer .productOrderDetails .productDetails .productUnit {
+  font-size: 13px;
+  margin-top: -8px;
+}
+.ordersContairsMain .productOrdersContainer .statusContainer {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.ordersContairsMain .productOrdersContainer .statusContainer .sphere {
+  border-radius: 25px;
+  width: 15px;
+  height: 15px;
+}
+.ordersContairsMain .productOrdersContainer .statusContainer .dateAndStatus {
+  color: green;
+  margin-left: 12px;
+}
+
+@media screen and (max-width: 425px) {
+  .ordersContairsMain .productOrderDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  .ordersContairsMain .productOrderDetails .imageContainer img {
+    width: 100%;
+    min-width: 100%;
+  }
+  .ordersContairsMain .productOrderDetails .productDetails {
+    margin-left: 12px;
+  }
+  .ordersContairsMain .productOrderDetails .productDetails .productName {
+    font-size: 20px !important;
+    margin-top: 4px;
+  }
+  .ordersContairsMain .productOrderDetails .productDetails .productDesc {
+    font-size: 13px;
+    margin-top: -12px;
+  }
+  .ordersContairsMain .productOrderDetails .productDetails .productPrice {
+    font-size: 20px;
+    margin-top: -8px;
+  }
+  .ordersContairsMain .productOrderDetails .productDetails .productUnit {
+    font-size: 13px;
+    margin-top: -8px;
+  }
+}/*# sourceMappingURL=UserOrders.css.map */

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.footerMainContainer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footerContainer {
+  background-color: #00A896;
+  padding: 0px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footerContainer .totalsContainer h2 {
+  margin-top: -8px;
+}
+.footerContainer .footerCheckoutBtn {
+  padding: 15px;
+  width: 150px;
+  border: none;
+  background-color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.footerContainer .footerCheckoutBtn:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 425px) {
+  .footerContainer {
+    padding: 0 16px;
+  }
+}/*# sourceMappingURL=Footer.css.map */

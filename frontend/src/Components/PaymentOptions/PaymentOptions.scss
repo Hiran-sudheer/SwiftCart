@@ -1,0 +1,101 @@
+@import '../variables';
+
+
+
+.paymentOtionsContainer {
+    margin-top: 128px;
+    padding: 0 300px;
+    margin-bottom: 128px;
+    // background-color: #f0f0f0;
+
+
+    .paymentOptionsContainerTabMain{
+
+      .cartPaymentTabButtons{
+        display: flex;
+        flex-direction: column;
+
+        .paymentOptionsButtons{
+          padding: 20px;
+          background-color: rgb(228, 228, 228);
+          border: none;
+
+          font-size: large;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      display: flex;
+    }
+
+
+    .payNowBtn{
+        width: 100%;
+        padding: 15px;
+        background-color: $textColor;
+        border: none;
+        color: $secondaryColor;
+        margin-top: 12px;
+        cursor: pointer;
+        
+    }
+
+    .tabContent {
+      display: none; /* Initially hide all tab content */
+    }
+    
+    /* Styles for active tab content */
+    .tabContent.active {
+      display: block; /* Show the active tab content */
+      /* Add styles for the active tab content */
+    }
+
+    .paymentMethodContainerMain{
+      border: 1px solid rgb(206, 206, 206);
+      width: 100%;
+      padding: 10px;
+    }
+
+  }
+  
+  .paymentMethodsContainer {
+    padding: 30px;
+    border: 1px solid rgb(0, 0, 0);
+
+    // background-color: rgb(234, 234, 234);
+  }
+  
+  .collapsibleContent {
+    padding: 10px;
+    background-color: #f0f0f0;
+    // margin-top: 10px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+  }
+
+  .paymentMethod{
+    margin-top: -24px;
+    margin-bottom: 32px;
+
+    h5{
+        border-bottom: 1px solid black;
+        width: 100%;
+    }
+
+   
+    
+  }
+
+  @media screen and (max-width:1024px) {
+    .paymentOtionsContainer{
+        padding:  0 64px;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .paymentOtionsContainer{
+        padding:  0 32px;
+    }
+}

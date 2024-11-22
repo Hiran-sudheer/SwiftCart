@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.billingContainerMain {
+  border: 1px solid rgb(198, 198, 198);
+  padding: 0 64px;
+  margin-top: 12px;
+}
+.billingContainerMain .billingContainerPrice, .billingContainerMain .billingContainerDelivery, .billingContainerMain .billingContainerTax {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -14px;
+}
+@media screen and (max-width: 425px) {
+  .billingContainerMain {
+    padding: 0 16px;
+  }
+}/*# sourceMappingURL=CartBill.css.map */

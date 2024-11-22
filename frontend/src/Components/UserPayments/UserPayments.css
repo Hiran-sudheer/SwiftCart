@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.paymentMethod {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 20px;
+}
+.paymentMethod h3 {
+  width: 100%;
+  margin-left: 20px;
+  text-align: left;
+}
+.paymentMethod p {
+  width: 100%;
+  margin-left: 20px;
+  text-align: left;
+  margin-top: -10px;
+}
+.paymentMethod .radio {
+  border: 1px solid #313131;
+  padding: 10px;
+  font-size: 28px;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  margin-top: 12px;
+  width: 60%;
+}
+.paymentMethod .radio span {
+  font-size: 13px;
+}
+.paymentMethod .radio h5 {
+  text-decoration: none;
+}
+.paymentMethod .radio h3 {
+  margin: 0px;
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 425px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+  }
+  form h3 {
+    width: 100%;
+    margin-left: 20px;
+    text-align: left;
+  }
+  form p {
+    width: 100%;
+    margin-left: 20px;
+    text-align: left;
+    margin-top: -10px;
+  }
+  form .radio {
+    border: 1px solid #313131;
+    padding: 10px;
+    font-size: 28px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    margin-top: 12px;
+    width: 100% !important;
+  }
+}/*# sourceMappingURL=UserPayments.css.map */

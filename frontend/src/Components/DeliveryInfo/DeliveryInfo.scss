@@ -1,0 +1,335 @@
+@import '../variables';
+
+
+.deliveryInfoContainer{
+
+    padding: 0 12px;
+    border: 1px solid rgb(204, 204, 204);
+    margin-top: -16px;
+    .deliveryInputsContainer{
+        padding: 20px;
+        background-color: rgb(244, 244, 244);
+        margin-top: 12px;
+        margin-bottom: 12px;
+
+        .delveryNameContainer{
+            display: flex;
+            justify-content: space-between;
+
+            .deliveryName{
+                display: flex;
+                flex-direction: column;
+                width: 49%;
+                
+                input{
+                    padding: 10px;
+                }
+            }
+
+            .deliveryPhone{
+                @extend .deliveryName
+            }
+
+        }
+
+        .delveryAddressContainer{
+            display: flex;
+            flex-direction: column;
+            margin-top: 12px;
+        }
+
+
+        .delveryLandmarkContainer{
+            display: flex;
+            justify-content: space-between;
+
+            .deliveryLadmarkName{
+                display: flex;
+                flex-direction: column;
+                width: 49%;
+                margin-top: 12px;
+                
+                input{
+                    padding: 10px;
+                }
+            }
+
+            .deliveryStreetName{
+                @extend .deliveryLadmarkName
+            }
+        }
+
+        .delverypincodeAndLocationContainer{
+            display: flex;
+            justify-content: space-between;
+
+            .deliveryPincode{
+                display: flex;
+                flex-direction: column;
+                width: 49%;
+                margin-top: 12px;
+                
+                input{
+                    padding: 10px;
+                }
+            }
+
+
+            .deliveryGPS{
+                display: flex;
+                flex-direction: column;
+                width: 49%;
+                margin-top: 12px;
+
+                button{
+                    margin-top: 19px;
+                    padding: 10px;
+                    background-color:#F0F4FF ;
+                    border: 0.5px solid black;
+
+
+                    .locationIcon{
+                        margin-right: 12px;
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                        background-color:#ffffff ;
+                    }
+                }
+            }
+        }
+
+        .addAnAddressBtn{
+            width: 100%;
+            margin-top: 12px;
+            padding: 15px;
+            color: $secondaryColor;
+            background-color: $primaryColor;
+            border: none;
+
+            &:hover{
+                cursor: pointer;
+            }
+
+        }
+
+    }
+
+    .alreadySavedAddressesContainer{
+
+        form{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            .radio{
+                
+   
+               label{
+                   display: flex;
+                   align-items: center;
+                   border: 1px solid rgb(216, 216, 216);
+                   margin-bottom: 8px;
+                   padding: 20px;
+   
+                   &:hover{
+                       cursor: pointer;
+                   }
+   
+   
+                   p{
+                       margin-left: 32px;
+                       margin-top: -12px;
+                   }
+   
+                   .removeBtn{
+                       background-color: $secondaryColor;
+                       border: none;
+                       color: blue;
+
+                       &:hover{
+                        cursor: pointer;
+                       }
+                   }
+               }
+           }
+        }
+        
+       
+    
+    }
+}
+
+.continurToPayButton{
+    margin-bottom: 200px;
+    margin-top: 12px;
+    button{
+        width: 100%;
+        padding: 15px;
+        background-color: $textColor;
+        color: $secondaryColor;
+        border: none;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width:425px) {
+    .deliveryInfoContainer{
+
+        padding: 0 12px;
+        border: 1px solid rgb(204, 204, 204);
+        margin-top: -16px;
+        .deliveryInputsContainer{
+            padding: 20px;
+            background-color: rgb(244, 244, 244);
+            margin-top: 12px;
+            margin-bottom: 12px;
+    
+            .delveryNameContainer{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+    
+                .deliveryName{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin-top: 12px;
+                    
+                    input{
+                        padding: 10px;
+                    }
+                }
+    
+                .deliveryPhone{
+                    @extend .deliveryName
+                }
+    
+            }
+    
+            .delveryAddressContainer{
+                display: flex;
+                flex-direction: column;
+                margin-top: 12px;
+            }
+    
+    
+            .delveryLandmarkContainer{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+    
+                .deliveryLadmarkName{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin-top: 12px;
+                    
+                    input{
+                        padding: 10px;
+                    }
+                }
+    
+                .deliveryStreetName{
+                    @extend .deliveryLadmarkName
+                }
+            }
+    
+            .delverypincodeAndLocationContainer{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+    
+                .deliveryPincode{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin-top: 12px;
+                    
+                    input{
+                        padding: 10px;
+                    }
+                }
+    
+    
+                .deliveryGPS{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    margin-top: 12px;
+    
+                    button{
+                        margin-top: 19px;
+                        padding: 10px;
+                        background-color:#F0F4FF ;
+                        border: 0.5px solid black;
+    
+    
+                        .locationIcon{
+                            margin-right: 12px;
+                        }
+    
+                        &:hover{
+                            cursor: pointer;
+                            background-color:#ffffff ;
+                        }
+                    }
+                }
+            }
+    
+            .addAnAddressBtn{
+                width: 100%;
+                margin-top: 12px;
+                padding: 15px;
+                color: $secondaryColor;
+                background-color: $primaryColor;
+                border: none;
+    
+                &:hover{
+                    cursor: pointer;
+                }
+    
+            }
+    
+        }
+    
+        .alreadySavedAddressesContainer{
+            .radio{
+                label{
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid rgb(216, 216, 216);
+                    margin-bottom: 8px;
+                    padding: 20px;
+    
+                    &:hover{
+                        cursor: pointer;
+                    }
+    
+    
+                    p{
+                        margin-left: 32px;
+                        margin-top: -12px;
+                    }
+                }
+            }
+           
+        
+        }
+    }
+    
+    .continurToPayButton{
+        margin-bottom: 200px;
+        margin-top: 12px;
+        button{
+            width: 100%;
+            padding: 15px;
+            background-color: $textColor;
+            color: $secondaryColor;
+            border: none;
+        }
+    }
+}

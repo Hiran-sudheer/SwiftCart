@@ -1,0 +1,302 @@
+@import '../variables';
+
+.productDetailsContainer{
+    margin-top: 128px;
+    padding: 0 128px;
+
+    .productImageAndDetailsContainer{
+        display: flex;
+        width: 100%;
+
+        .productImageandButton{
+            width: 50%;
+            min-width: 300px;
+
+            img{
+                width: 90%;
+                border: 1px solid black;
+            }
+        }
+        .buttonsContainer{
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            
+
+            .productOrderNow{
+                width: 50%;
+                padding: 12px;
+                border: none;
+                background-color: $primaryColor;
+                
+                display: flex;
+                align-items: center;
+                
+                
+                button{
+                    background-color: $primaryColor;
+                    border: none;
+                    width: 100%;
+                    cursor: pointer;
+                }
+            }
+
+            .productAddToCart{
+                width: 50%;
+                padding: 12px;
+                border: none;
+                margin-left: 9px;
+                background-color: $textColor;
+                color: $secondaryColor;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            
+        }
+    }
+
+    .productDetails{
+        max-width: 50%;
+        margin-left: 24px;
+
+        .productName{
+            font-size: map-get($fontSize, large );
+            font-weight: 600;
+            color: $textColor;
+            margin-top: -10px;
+        }
+
+        .productDesc{
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            line-height: 20px;
+            margin-top: -24px;
+        }
+
+        .productPriceContainer{
+            display: flex;
+            
+        }
+
+        .productPrice{
+            font-size: map-get($fontSize, xLarge );
+            margin-right: 32px;
+        }
+
+        .deliveryDetails{
+            display: flex;
+            align-items: center;
+
+            .inputContainer{
+                margin-left: 48px;
+                display: flex;
+                align-items: center;
+
+                .locationIcon{
+                    padding: 10px;
+                }
+            }
+            
+            input[type=text]{
+                width: 250px;
+                padding: 10px;
+                border: none;
+                border-bottom: 1px solid $textColor;
+                outline: none;
+                
+            }
+        }
+
+        .specificationsContainer{
+            margin-top: 64px;
+            margin-bottom: 128px;
+            .specificationsHead{
+                width: 100%;
+                // background-color: bisque;
+                padding: 10px;
+                border: 1px solid rgb(198, 198, 198);
+            }
+
+            .specificationsBody{
+                border: 1px solid rgb(190, 190, 190);
+                padding: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                text-align: start;   
+            
+                .specificationItem{
+                    font-size: map-get($fontSize, small );
+                }
+
+                div{
+                    width: 50%;
+                }
+            }
+            .specificationsWarrenty{
+                width: 100%;
+                border: 1px solid rgb(183, 183, 183);
+                padding: 10px;
+                font-size: map-get($fontSize, small );
+                p{
+                    margin-top: -12px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .productDetailsContainer{
+      padding: 0 32px;
+      
+    }
+}
+
+  
+@media screen and (max-width:768px) {
+    .productDetailsContainer{
+      padding: 0 16px;
+
+      .productImageAndDetailsContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .productImageandButton{
+            width: 100%;
+            min-width: 300px;
+
+            img{
+                width: 100%;
+                border: 1px solid black;
+                height: 300px;
+                object-fit: cover;
+            }
+        }
+        .buttonsContainer{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            
+
+            .productOrderNow{
+                width: 50%;
+                padding: 12px;
+                border: none;
+                background-color: $primaryColor;
+                cursor: pointer;
+              
+                
+            }
+
+            .productAddToCart{
+                width: 50%;
+                padding: 12px;
+                border: none;
+                margin-left: 9px;
+                background-color: $textColor;
+                color: $secondaryColor;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            
+        }
+    }
+
+    .productDetails{
+        max-width: 100%;
+        margin-left: 0px;
+        margin-top: 24px;
+
+        .productName{
+            font-size: map-get($fontSize, large );
+            font-weight: 600;
+            color: $textColor;
+            // margin-top: -10px;
+        }
+
+        .productDesc{
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            line-height: 20px;
+            margin-top: -24px;
+        }
+
+        .productPrice{
+            font-size: map-get($fontSize, xLarge );
+        }
+
+        .deliveryDetails{
+            display: flex;
+            align-items: center;
+
+            .inputContainer{
+                margin-left: 48px;
+                display: flex;
+                align-items: center;
+
+                .locationIcon{
+                    padding: 10px;
+                }
+            }
+            
+            input[type=text]{
+                width: 250px;
+                padding: 10px;
+                border: none;
+                border-bottom: 1px solid $textColor;
+                outline: none;
+                
+            }
+        }
+
+        .specificationsContainer{
+            margin-top: 24px;
+            margin-bottom: 120px;
+            // padding: 24px;
+            .specificationsHead{
+                width: 100%;
+                // background-color: bisque;
+                padding: 10px;
+                border: 1px solid rgb(198, 198, 198);
+            }
+
+            .specificationsBody{
+                border: 1px solid rgb(190, 190, 190);
+                padding: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                text-align: start;   
+            
+                .specificationItem{
+                    font-size: map-get($fontSize, small );
+                }
+
+                div{
+                    width: 50%;
+                }
+            }
+            .specificationsWarrenty{
+                width: 100%;
+                border: 1px solid rgb(183, 183, 183);
+                padding: 10px;
+                font-size: map-get($fontSize, small );
+                p{
+                    margin-top: -12px;
+                }
+            }
+        }
+    }
+
+    }
+
+    
+  }

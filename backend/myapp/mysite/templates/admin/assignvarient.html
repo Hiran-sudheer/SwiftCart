@@ -1,0 +1,322 @@
+{% extends "admin/main/base.html" %}
+
+{% block title %}Assign Variant{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <section class="hbox stretch">
+        <section>
+            <section class="vbox">
+                <section class="scrollable padder">
+
+                    <!-- Breadcrumbs -->
+                    <section class="row m-b-md brud-theme">
+                        <div class="col-sm-6 text-black">
+                            <ol class="breadcrumb text-left">
+                                <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+                                <li class="active"> Assign Variant</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- Main Content -->
+                    <section class="panel panel-default">
+                        <header class="panel-heading">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h4> <i class="fa fa-list-ul"></i>
+                                        Assign Variant
+                                    </h4>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="modal-body" id="app">
+                            <div class="row">
+                                <div class="col-sm-4 col-lg-4 col-md-4 col-xs-4">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+
+
+                                                <label>Shop Types</label>
+                                                <select class="form-control" id="shoptype" name="shoptype"
+                                                    style="width: 100%">
+                                                    <option value="">-Select-</option>
+                                                    {% for shoptype in shoptypes %}
+                                                    <option value="{{ shoptype.id }}">{{ shoptype.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select class="form-control" id="category" name="Categoryid"
+                                                    style="width: 100%">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="col-sm-8 col-lg-8 col-md-8 col-xs-8">
+                                    <h2 id="assign_tags">Assigned Variant</h2>
+                                    <div class="row" id='assigned'>
+
+                                        <!--{% for selectedVarient in selectedVarient %}
+                                        <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3" style="padding: 5px;">
+                                            <a class="btn btn-success" href="#"
+                                                onclick="removeVariant('{{ selectedVarient.id }}', '{{ selectedVarient.name }}', {{ forloop.counter0 }})">
+                                                {{ selectedVarient.name }}
+                                                <i class="fa fa-close"></i>
+                                            </a>
+                                        </div>
+                                        {% endfor %} -->
+                                    </div>
+                                    <hr>
+
+                                    <h2 id="tags">Variant List</h2>
+                                    <div class="row" id="varientbutton">
+                                        <div class="col-sm-8 col-lg-8 col-md-8 col-xs-8">
+
+
+
+                                        </div>
+
+                                        <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+                                            <button onclick="AddAssignCategory()" id="btn_save" type="submit"
+                                                class="btn bg-blue text-center pull-right btn_submit">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#shoptype").change(function () {
+            var selectedValue = $(this).val();
+            // alert("You selected: " + selectedValue);
+            $("#category option").remove();
+
+
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:8000/admin/loadCategoryByShopId/" + selectedValue, // Correct URL path
+                dataType: "json",
+                success: function (result, status, xhr) {
+
+                    $.each(result.data, function (i, option) {
+                        $('#category').append($('<option/>').attr("value", option.id).text(option.name));
+                    });
+
+
+
+
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
+
+
+
+
+                }
+            });
+        });
+
+
+
+
+
+
+        $("#category").change(function () {
+
+            var selectedValue = $(this).val();
+            // alert("You selected: " + selectedValue);
+            // $("#category option").remove();
+
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:8000/admin/loadCategoryId/", // Correct URL path
+                dataType: "json",
+                success: function (r, status, xhr) {
+
+
+                    $.each(r.data, function (i, value) {
+
+
+
+                        $('#varientbutton').append($('<div/>').attr("class", "col-sm-3 col-md-3 col-lg-3 col-xs-3")
+                            .append($('<button/>').attr("id", value.id).attr("class", "btn bg-green").attr("onclick", "clickVarientBtn(this)").text(value.name)))
+
+
+                    });
+
+                    fetchAssignedVariants();
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
+
+
+
+
+                }
+
+
+
+
+
+            });
+
+        });
+
+
+
+
+
+        // Function to fetch and display assigned variants
+        function fetchAssignedVariants() {
+            var shoptype = $('#shoptype').val();
+            var category = $('#category').val();
+
+
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1:8000/admin/fetchAssignedVariants/',  // Update with your actual URL
+                data: { Categoryid: category, Shoptypes_id: shoptype },
+                dataType: 'json',
+                success: function (response) {
+                    // Clear existing buttons
+                    $('#assigned').empty();
+                    //console.log("BODY: " + response)
+                    // Append buttons to the 'assignedVariants' container
+                    $.each(response.data, function (i, value) {
+                        //   alert(value.id);
+                        $('#assigned').append($('<button/>').attr("id", value.id).attr("class", "btn bg-maroon").attr("onclick", "clickAssignedVariantBtn(this)").text(value.name));
+                    });
+                },
+                error: function (xhr, status, error) {
+                    alert('Error fetching assigned variants: ' + status + ' ' + error + ' ' + xhr.status + ' ' + xhr.statusText);
+                }
+            });
+        }
+
+    });
+
+    function clickVarientBtn(item) {
+        //alert($(item).attr('id'));
+        const div = $('<div class="col-sm-3 col-md-3 col-lg-3 col-xs-3"></div>');
+
+        $('#varientbutton').on('click', 'button', function () {
+        // Move the clicked button to the "varientlist" table
+        $(this).appendTo('#assigned');
+    });
+        
+    div.append(item);
+
+// Append the div to the element with ID "varientbutton" using jQuery
+$('#varientbutton').append(div);
+
+}
+  
+ 
+//     $('#assigned').on('click', 'button', function () {
+//     // Call the function to move the clicked button
+//     clickVarientBtn(this);
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+    function clickAssignedVariantBtn(item) {
+
+        const div = $('<div class="col-sm-3 col-md-3 col-lg-3 col-xs-3"></div>');
+
+
+
+        $(item).off('click').removeAttr('onclick');
+        // Add a new click event handler calling the updated function
+        $(item).on('click', function () {
+            clickVarientBtn(this);
+        });
+
+        $(item).removeClass('btn bg-maroon').addClass('btn bg-green');
+
+        // Append the item to the div
+        div.append(item);
+
+        // Append the div to the element with ID "varientbutton" using jQuery
+        $('#varientbutton').append(div);
+
+    }
+
+ 
+
+
+
+
+
+
+    
+
+
+
+
+    function AddAssignCategory() {
+        buttonIds = [];
+
+
+        $('#assigned .btn').each(function () {
+
+            buttonIds.push($(this).attr('id'));
+        });
+        var buttonIdsString = buttonIds.join(', ');
+        var shoptype = $('#shoptype').val();
+        var cat = $('#category').val();
+        alert(buttonIdsString);
+        //alert('Id=' + buttonIdsString + " Shoptype" + cat);
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:8000/admin/save_assigned_variants',  // Update with your actual URL
+            data: { "Shoptypes": shoptype, "Categoryid": cat, "Assignvariant": buttonIdsString, "csrfmiddlewaretoken": "{{csrf_token}}" },
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function (response) {
+                if (response.success) {
+
+
+                    alert('Variants assigned successfully!');
+                    // You can perform additional actions after a successful assignment
+                } else {
+                    alert('Error assigning variants: ' + response.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                alert('Error: ' + status + ' ' + error + ' ' + xhr.status + ' ' + xhr.statusText);
+            }
+        });
+
+        // Add code to update the assigned variant table and button model
+        // For example, you might make another AJAX call to fetch the latest data and update the UI
+
+    }
+
+</script>
+{% endblock %}

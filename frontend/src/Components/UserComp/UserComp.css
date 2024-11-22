@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.userContainer {
+  margin-top: 128px;
+  padding: 0 128px;
+  display: flex;
+  gap: 13px;
+  /* Add a class for the selected button */
+}
+.userContainer .tabButton {
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 0.5px solid rgb(198, 198, 198);
+  cursor: pointer;
+  margin-bottom: 12px;
+  width: 300px;
+}
+.userContainer .tabButton .details {
+  font-size: 20px;
+}
+.userContainer .tabButton .detailsContainer {
+  width: 70%;
+  text-align: left;
+}
+.userContainer .tabButton .description {
+  font-size: 13px;
+  margin-top: -12px;
+  color: rgb(170, 170, 170);
+}
+.userContainer .tabButton .userIcon {
+  font-size: x-large;
+}
+.userContainer .tabButton .arrowIcon {
+  font-size: x-large;
+}
+.userContainer .tabButton.selected {
+  background-color: #E8E8E8; /* Set your desired background color for the selected button */
+  /* Add any other styles for the selected button */
+}
+.userContainer .detailsContainerMain {
+  margin-bottom: 128px;
+  width: 100%;
+  border: 1px solid rgb(204, 204, 204);
+}
+.userContainer .detailsContainerMain .detailsContentContainer {
+  padding: 20px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .detailsHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .detailsHeader .logoutBtn {
+  border: 1px solid #313131;
+  height: 40px;
+  width: 100px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .detailsHeader .logoutBtn:hover {
+  background-color: #313131;
+  color: #ffffff;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .detailsHeader button {
+  background-color: #ffffff;
+  border: none;
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer {
+  border: 1px solid #c7c7c7;
+  padding: 10px;
+  margin-top: 8px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain {
+  width: 90%;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userName {
+  display: flex;
+  align-items: center;
+  margin-top: -12px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userName p {
+  margin-left: 12px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userAddress {
+  font-size: 13px;
+  margin-top: -8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-top: -32px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userAddress p {
+  margin-left: 12px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userPhone {
+  font-size: 13px;
+  margin-top: -8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-top: -32px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userPhone p {
+  margin-left: 12px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userLandmark {
+  font-size: 13px;
+  margin-top: -8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-top: -32px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userLandmark p {
+  margin-left: 12px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userStreet {
+  font-size: 13px;
+  margin-top: -8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-top: -32px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userAddressMain .userStreet p {
+  margin-left: 12px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns {
+  display: flex;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns .editBtn {
+  padding: 8px;
+  border: 1px solid #00A896;
+  display: flex;
+  align-items: center;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns .editBtn .editLogo {
+  font-size: 20px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns .editBtn:hover {
+  background-color: #00A896;
+  color: #ffffff;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns .deleteBtn {
+  padding: 8px;
+  border: 1px solid red;
+  margin-left: 8px;
+  background-color: #ffffff;
+  color: red;
+  display: flex;
+  align-items: center;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns .deleteBtn .deleteLogo {
+  font-size: 20px;
+}
+.userContainer .detailsContainerMain .detailsContentContainer .userAddressContainer .userInteractiveBtns .deleteBtn:hover {
+  background-color: red;
+  color: #ffffff;
+  cursor: pointer;
+}
+.userContainer .detailsContainerMain .titleText {
+  font-size: 20px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.userContainer .detailsContainerMain label {
+  font-size: 13px;
+  color: #ababab;
+}
+.userContainer .editBtn {
+  background-color: #ffffff;
+  border: none;
+  color: #00A896;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .userContainer {
+    padding: 0 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .userContainer {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .userContainer .userTabButtons {
+    display: flex;
+    gap: 5px;
+  }
+  .userContainer .userTabButtons .tabButton {
+    padding: 10px;
+    min-width: auto;
+  }
+  .userContainer .userTabButtons .tabButton .detailsContainer {
+    width: 50%;
+  }
+  .userContainer .userTabButtons .tabButton .detailsContainer .details {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .userContainer {
+    padding: 0 16px;
+  }
+  .userContainer .userTabButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .userContainer .userTabButtons .tabButton {
+    padding: 10px;
+    min-width: auto;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+  .userContainer .userTabButtons .tabButton .detailsContainer {
+    width: 50%;
+  }
+  .userContainer .userTabButtons .tabButton .detailsContainer .details {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+}/*# sourceMappingURL=UserComp.css.map */

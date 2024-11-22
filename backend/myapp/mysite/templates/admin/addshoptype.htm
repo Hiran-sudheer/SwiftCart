@@ -1,0 +1,45 @@
+{% extends "admin/main/base.html" %}
+{% block title %}shop Type{% endblock %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <h3>SHOP TYPE MANAGEMENT</h3>
+                <div class="box">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            ADD/EDIT SHOP TYPE
+                        </div>
+                        <div class="box-body" style="margin-bottom: -11px;">
+                            <form role="form" method="post">
+                                {% csrf_token %}
+                                <!-- {% include 'admin/main/form_temp.html' %} -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="{{ form.name.id_for_label }}">Shop Type Name</label>
+                                        {{ form.name }}
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="{{ form.Local.id_for_label }}">Shop Type Name Local</label>
+                                        {{ form.Local }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ form.Description.id_for_label }}">Description</label>
+                                        {{ form.Description }}
+                                    </div>
+                                </div> 
+                               
+                                <br><br><br><br> <br><br><br><hr>  <div class="box-footer" style="text-align: right; border: 0px transparent;">
+                                    <button type="submit" class="btn btn-primary" style="margin-top: -19px; width: 90px; margin-bottom:-16px;">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- /.box -->
+                </div><!--/.col (left) -->
+            <!-- </div> -->
+        <!-- </div> -->
+    </section><!-- /.content -->
+{% endblock %}

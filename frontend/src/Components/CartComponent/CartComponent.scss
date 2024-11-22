@@ -1,0 +1,211 @@
+@import '../variables';
+
+.cartComponentContainer{
+    padding: 0 256px;
+    margin-top: 128px;
+    margin-bottom: 128px;
+
+
+    .cartContainer{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+       
+
+    }
+    .cartProduct{
+        // width: 95%;
+        display: flex;
+        border: 1px solid rgb(187, 187, 187);
+        margin-top: 8px;
+
+        img{
+            padding: 5px;
+            width: 250px;
+        }
+
+        .productName{
+            font-size: map-get($fontSize , large );
+            margin: 0;
+            margin-top: 12px;
+            margin-left: 8px;
+            width: 100%;
+        }
+
+        .cartInternalProductDetails{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            .cartIncAndDecContainer{
+
+                margin-top: 12px;
+                margin-bottom: 12px;
+                button{
+                    background-color: $secondaryColor;
+                    border: none;
+                    margin-left: 5px;
+                    margin-right: 5px;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+
+                .cartDecrementBtn{
+                    border: none;
+                    padding: 8px;
+                    background-color: #313131;
+                    color: $secondaryColor;
+                }
+                .cartIncrementBtn{
+                    border: none;
+                    padding: 8px;
+                    background-color: #313131;
+                    color: $secondaryColor;
+                }
+            }
+
+            .delBtn{
+                margin-top: 12px;
+                margin-right: 12px;
+                background-color: #313131;
+                height: 40px;
+                width: 50px;
+                min-width: 40px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                color: $secondaryColor;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .productDesc{
+                margin-left: 12px;
+                font-size: map-get($fontSize, small );
+                width: 90%;
+            }
+
+            .productPrice{
+
+                    margin-left: 12px;
+                    font-size: map-get($fontSize, medium );
+            
+            }
+        }
+    }
+
+    .paymentContainer{
+        button{
+            width: 100%;
+            // border: 1px solid black;
+            background-color: #313131;
+            padding: 15px;
+            color: $secondaryColor;
+            border: none;
+            margin-top: 12px ;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        
+    }
+
+    .billingContainerMain{
+        border: 1px solid rgb(198, 198, 198);
+        padding: 0 64px;
+        margin-top: 12px;
+
+        .billingContainerPrice{
+            display: flex;
+            justify-content: space-between;
+            margin-top: -14px;
+
+        }
+        .billingContainerTax{
+            @extend .billingContainerPrice
+        }
+
+        .billingContainerDelivery{
+            @extend .billingContainerPrice
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .cartComponentContainer{
+        padding:  0 128px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .cartComponentContainer{
+        padding:  0 64px;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .cartComponentContainer{
+        padding:  0 12px;
+
+        .cartProduct{
+            flex-direction: column;
+
+            img{
+                width: 96%;
+            }
+
+
+            .cartInternalProductDetails{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+    
+                .cartIncAndDecContainer{
+    
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                    display: flex;
+                    justify-content:start;
+
+                }
+    
+                .productDesc{
+                    margin-left: 12px;
+                    font-size: map-get($fontSize, small );
+                    width: 90%;
+                }
+    
+                .productPrice{
+    
+                        margin-left: 12px;
+                        font-size: map-get($fontSize, medium );
+                
+                }
+            }
+        }
+        .billingContainerMain{
+            border: 1px solid rgb(198, 198, 198);
+            padding: 0 32px;
+            margin-top: 12px;
+    
+            .billingContainerPrice{
+                display: flex;
+                justify-content: space-between;
+                margin-top: -14px;
+    
+            }
+            .billingContainerTax{
+                @extend .billingContainerPrice
+            }
+    
+            .billingContainerDelivery{
+                @extend .billingContainerPrice
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,73 @@
+{% extends "admin/main/base.html" %}
+{% block title %}Category{% endblock %}
+
+{% block content %}
+	   <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <h3>Category Management</h3>
+                <div class="box">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                    ADD/EDIT Category
+                    </div><!-- /.box-header -->
+                    <!-- form start -->
+                   
+                    <form role="form" method="post">
+                        <div class="box-body" style="padding-bottom: 10px;">
+
+                               {% csrf_token %}
+                        <!-- {% include 'admin/main/form_temp.html' %}  -->
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="{{ form.name.id_for_label }}">Category Name</label>
+                                {{ form.name }}
+                            </div>
+                          
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="{{ form.name.id_for_label }}">Sort Order</label>
+                                    {{ form.sortOrder }}
+                                </div>
+                              
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="{{ form.name.id_for_label }}">Status</label>
+                                        {{ form.status }}
+                                    </div>
+                                  
+    
+
+
+
+                        
+                    
+                    </div>
+                    {% if shoptypeList %}
+                    <div class="form-group" style= padding:15px;>
+                        <label for="shoptypenames"class="control-label">ShopType</label>
+                        <select name="cars" id="cars" class="form-control" style="width: 330px;">
+                            {% for shoptype in shoptypeList %}
+                                <option value="{{ shoptype.id }}">{{ shoptype.name }}</option>
+                            {% endfor %}
+                        </select>
+                        </div>
+                    {% endif %}
+                        <div class="box-footer" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary" style="margin-top: 0px; margin-left: 967px; width: 90px; margin-bottom: -26px;">Save</button>
+
+                        </div>
+                    </form>
+                </div><!-- /.box -->
+
+               
+
+            </div><!--/.col (left) -->
+      
+        </div>
+    </section><!-- /.content --> 
+{% endblock %}

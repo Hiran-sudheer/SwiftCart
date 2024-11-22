@@ -1,0 +1,89 @@
+{% extends "admin/main/base.html" %}
+{% block title %}Product Management{% endblock %}
+
+{% block content %}
+	   <!-- Main content -->
+    <section class="content">
+      
+        <div class="row">
+            
+           
+            <div class="col-md-12">
+                <!-- general form elements -->
+             
+                <h3>PRODUCT MANAGEMENT</h3>
+                <!-- <div class="box box-primary">
+                    
+                    <div class="box-header"> -->
+                        <div class="box">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                        ADD/EDIT PRODUCT
+                    </div><!-- /.box-header -->
+                    <!-- form start -->
+                    <!-- <form role="form" method="post"> -->
+                        
+                        <div class="box-body">
+                        <form method="post" enctype="multipart/form-data">
+                          
+                                
+                         {% csrf_token %}
+                        
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.name.id_for_label }}">Product Name</label>
+                                {{ form.Productname }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.Productname_local.id_for_label }}">Product Name (Local)</label>
+                                {{ form.Local }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.name.id_for_label }}">ERP Code</label>
+                                {{ form.ERPcode }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.name.id_for_label }}">Category </label>
+                                {{ form.Category }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.name.id_for_label }}">Regular Price </label>
+                                {{ form.RegularPrice }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.name.id_for_label }}">Offer Price </label>
+                                {{ form.OfferPrice }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.name.id_for_label }}"> Availability </label>
+                                {{ form.Availability }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.description.id_for_label }}"> Description </label>
+                                {{ form.Description }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.sortorder.id_for_label }}"> Sort Order </label>
+                                {{ form.Sortorder }}
+                            </div>
+                         
+                            <div class="form-group col-md-6">
+                            <label for="Image">Image (237X140 px) <span class="required-color">*</span></label>
+                            {{ form.Image }}
+                             </div>
+                             </form>
+
+
+                         <div class="box-footer">
+                            <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</div>
+{% endblock %}

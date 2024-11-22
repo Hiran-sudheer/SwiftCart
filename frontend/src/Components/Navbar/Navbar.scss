@@ -1,0 +1,159 @@
+@import '../variables';
+
+
+.navBarSection{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+@mixin mobile{
+    @media screen and (max-width:$mobile) {
+        @content;
+    }
+}
+
+.navBarContainer{
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 64px;
+    height: 80px;
+    align-items: center;
+    background-color: $primaryColor;
+    font-family: 'Inter', sans-serif;
+   
+
+    .searchInput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .locationIcon{
+            padding: 12px;
+            background-color: white;
+        }
+        .searchIcon{
+            @extend .locationIcon;
+            
+        }
+        input{
+            padding: 12.5px;
+            border: none;
+            width: 250px;
+            outline: none;
+        }
+    }
+    .profileButton{
+        width:40px;
+        height:50px;
+        .profile{
+            font-size: large;
+        }
+    }
+    .loginAndSignup{
+        display: flex;
+        height: 50px;
+        .logButton{
+            margin-right: 5px;
+            padding: 10px;
+            width: 100px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            font-weight:600 ;
+            font-size: map-get($fontSize, small );
+            &:hover{
+                background-color: rgb(231, 231, 231);
+                cursor: pointer;
+            }
+            .bagIcon{
+                margin-left: 12px;
+                font-size: large;
+                
+            }
+
+            .logIcon{
+                margin-left: 12px;
+                font-size: large;
+            }
+            
+        }
+
+        .bagButton{
+            margin-right: 5px;
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            font-weight:600 ;
+            font-size: map-get($fontSize, small );
+            &:hover{
+                background-color: rgb(231, 231, 231);
+                cursor: pointer;
+            }
+            .bagIcon{
+                // margin-left: 12px;
+                font-size: large;
+
+            }
+
+            .logIcon{
+                margin-left: 12px;
+                font-size: large;
+            }
+        }
+    }
+
+    
+    
+
+    @include mobile{
+        padding: 0 4px;
+        .searchInput{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            .locationIcon{
+                padding: 12px;
+                background-color: white;
+            }
+            .searchIcon{
+                @extend .locationIcon;
+                
+            }
+            input{
+                padding: 12.5px;
+                border: none;
+                width: 50px;
+                outline: none;
+            }
+        }
+    }     
+    
+}
+
+
+@media screen and (max-width:425px) {
+    .logButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logIcon{
+            margin-left: 0px !important;
+        }
+        p{
+            display: none;
+        }
+        max-width: 50px;
+        text-align: center;
+    }
+}

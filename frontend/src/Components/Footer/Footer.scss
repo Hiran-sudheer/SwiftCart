@@ -1,0 +1,42 @@
+@import '../variables';
+
+
+.footerMainContainer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+.footerContainer{
+    background-color: $primaryColor;
+    padding: 0px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .totalsContainer{
+        h2{
+            margin-top: -8px;
+        }
+    }
+
+    .footerCheckoutBtn{
+        padding: 15px;
+        width: 150px;
+        border: none;
+        background-color: $secondaryColor;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+
+       &:hover{
+        cursor: pointer;
+       }
+    }
+}
+@media screen and (max-width:425px) {
+    .footerContainer{
+      padding: 0 16px;
+      
+    }
+  }

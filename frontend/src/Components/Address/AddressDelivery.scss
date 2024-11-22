@@ -1,0 +1,94 @@
+@import '../variables';
+
+.AddressDeliveryContainer{
+    margin-top: 128px;
+    padding: 0 256px;
+
+    .typeOfOrder{
+        display: flex;
+        justify-content: space-between;
+        .pickupBtn{
+            width: 50%;
+            padding: 12px;
+            background-color: $secondaryColor;
+            border: 1px solid black;
+    
+            &:hover{
+                background-color: $primaryColor;
+                color: $secondaryColor;
+                border: none;
+                cursor: pointer;
+    
+            }
+    
+        }
+
+        .pickupBtn.active {
+            background-color: $primaryColor;
+            color: $secondaryColor;
+            border: none/* Your desired background color for 'Pick Up' button */;
+          }
+          
+          .deliverBtn.active {
+            background-color: $primaryColor; 
+            color: $secondaryColor;
+            border:none/* Your desired background color for 'Deliver' button */;
+          }
+          
+    
+        .deliverBtn{
+            width: 50%;
+            padding: 12px;
+            background-color: $secondaryColor;
+            border: 1px solid black;
+            margin-left: 8px;
+    
+            &:hover{
+                background-color: $primaryColor;
+                color: $secondaryColor;
+                border: none;
+                cursor: pointer;
+    
+            }
+        }
+    }
+
+
+    .timeSelector{
+        padding: 10px;
+        background-color: rgb(239, 239, 239);
+        margin-top: 5px;
+        width: 500px;
+    }
+    .timeSelector {
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+      }
+      
+      .timeSelector:hover {
+        background-color: #c0c0c0;
+      }
+      
+      /* Styles for active time selector */
+      .active {
+        background-color: $primaryColor;
+        color: white;
+        /* Adjust other styles as needed for an active state */
+      }
+    
+    
+}
+
+@media screen and (max-width:1024px) {
+    .AddressDeliveryContainer{
+        padding:  0 64px;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .AddressDeliveryContainer{
+        padding:  0 32px;
+    }
+}

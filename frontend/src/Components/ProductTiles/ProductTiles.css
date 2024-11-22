@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.productTileGridContainer {
+  padding: 0 64px;
+  margin-top: 64px;
+  margin-bottom: 128px;
+}
+.productTileGridContainer .productTileHead {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.productTileGridContainer .productTileHead .dropbtn {
+  background-color: #ffffff;
+  color: #313131;
+  border: 1px solid rgb(176, 176, 176);
+  padding: 16px;
+  font-size: 16px;
+  width: 150px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 45px;
+}
+.productTileGridContainer .productTileHead .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.productTileGridContainer .productTileHead .dropdown a {
+  font-size: 13px;
+}
+.productTileGridContainer .productTileHead .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.productTileGridContainer .productTileHead .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.productTileGridContainer .productTileHead .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.productTileGridContainer .productTileHead .dropdown:hover .dropdown-content {
+  display: block;
+}
+.productTileGridContainer .productTileHead .dropdown:hover .dropbtn {
+  background-color: rgb(223, 223, 223);
+}
+.productTileGridContainer .card {
+  max-width: 350px;
+  background-color: #ffffff;
+  color: #313131;
+  border: 1px solid gainsboro;
+  padding: 10px;
+}
+.productTileGridContainer .card img {
+  width: 100%;
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.productTileGridContainer .card:hover {
+  cursor: pointer;
+  scale: 1.03;
+  transition: all 0.2s;
+}
+.productTileGridContainer .card .addToCartBtn {
+  width: 100%;
+  padding: 8px;
+  height: 40px;
+  border: none;
+  background-color: #00A896;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productTileGridContainer .card .addToCartBtn:hover {
+  cursor: pointer;
+}
+.productTileGridContainer .card .addToCartBtn .cartIcon {
+  margin-left: 24px;
+  font-size: 20px;
+}
+.productTileGridContainer .card .heartDivContainer {
+  background-color: #00A896;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 350px;
+  bottom: 200px;
+  color: #ffffff;
+}
+.productTileGridContainer .cards {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.productTileGridContainer .cards p {
+  margin-top: -20px;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 425px) {
+  .productTileGridContainer {
+    padding: 0 16px;
+  }
+  .productTileGridContainer .productTileHead {
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+  }
+  .productTileGridContainer .productTileHead .dropbtn {
+    background-color: #ffffff;
+    color: #313131;
+    border: 1px solid rgb(176, 176, 176);
+    padding: 16px;
+    font-size: 16px;
+    width: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    font-size: small;
+  }
+  .productTileGridContainer .productTileHead .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .productTileGridContainer .productTileHead .dropdown a {
+    font-size: 13px;
+  }
+  .productTileGridContainer .productTileHead .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .productTileGridContainer .productTileHead .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .productTileGridContainer .productTileHead .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  .productTileGridContainer .productTileHead .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .productTileGridContainer .productTileHead .dropdown:hover .dropbtn {
+    background-color: rgb(223, 223, 223);
+  }
+  .productTileGridContainer .card {
+    background-color: #ffffff;
+    color: #313131;
+    border: 1px solid gainsboro;
+    padding: 5px;
+  }
+  .productTileGridContainer .card img {
+    width: 100%;
+    height: 180px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .productTileGridContainer .card:hover {
+    cursor: pointer;
+    scale: 1.03;
+    transition: all 0.2s;
+  }
+  .productTileGridContainer .card .addToCartBtn {
+    width: 100%;
+    padding: 8px;
+    height: 40px;
+    border: none;
+    background-color: #00A896;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .productTileGridContainer .card .addToCartBtn:hover {
+    cursor: pointer;
+  }
+  .productTileGridContainer .card .addToCartBtn .cartIcon {
+    margin-left: 24px;
+    font-size: 20px;
+  }
+  .productTileGridContainer .card .heartDivContainer {
+    background-color: #00A896;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 350px;
+    bottom: 200px;
+    color: #ffffff;
+  }
+  .productTileGridContainer .cards {
+    margin: 0 auto;
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .productTileGridContainer .cards h3 {
+    font-size: medium;
+  }
+  .productTileGridContainer .cards h4 {
+    font-size: small;
+  }
+  .productTileGridContainer .cards p {
+    margin-top: -20px;
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=ProductTiles.css.map */

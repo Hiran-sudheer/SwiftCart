@@ -1,0 +1,299 @@
+@import '../variables';
+
+.userContainer{
+    margin-top: 128px;
+    padding: 0 128px;
+    display: flex;
+    gap: 13px;
+
+    .tabButton{
+        display: flex;
+        padding: 15px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $secondaryColor;
+        border: 0.5px solid rgb(198, 198, 198);
+        cursor: pointer;
+        margin-bottom: 12px;
+        // min-width: 300px;
+        width: 300px;
+
+        .details{
+            font-size: map-get($fontSize, medium );
+        }
+
+        .detailsContainer{
+            width: 70%;
+            text-align: left;
+
+        }
+
+        .description{
+            font-size: map-get($fontSize, small );
+            margin-top: -12px;
+            color: rgb(170, 170, 170);
+
+        }
+
+        .userIcon{
+            font-size: x-large;
+        }
+
+        .arrowIcon{
+            font-size: x-large;
+
+        }
+    }
+
+    /* Add a class for the selected button */
+.tabButton.selected {
+    background-color: #E8E8E8; /* Set your desired background color for the selected button */
+    /* Add any other styles for the selected button */
+  }
+  
+
+    .detailsContainerMain{
+        margin-bottom: 128px;
+        width: 100%;
+        border: 1px solid rgb(204, 204, 204);
+
+        .detailsContentContainer{
+
+            padding: 20px;
+            .detailsHeader{
+                display: flex;
+                justify-content: space-between;
+
+                .logoutBtn{
+                    border: 1px solid $textColor;
+                    height: 40px;
+                    width: 100px;
+                    &:hover{
+                        background-color: $textColor;
+                        color: $secondaryColor;
+                    }
+                }
+
+                button{
+                    background-color: $secondaryColor;
+                    border: none;
+                    width: 150px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+                
+            }
+
+            .userAddressContainer{
+                border: 1px solid #c7c7c7;
+                padding: 10px;
+                margin-top: 8px;
+
+                .userAddressMain{
+
+                    width: 90%;
+                   
+                    .userName{
+                        // font-size: map-get($fontSize, small);
+                        display: flex;
+                        align-items: center;
+                        margin-top: -12px;
+                        p{
+                            margin-left: 12px;
+                        }
+                        
+                    }
+
+                    .userAddress{
+                        font-size: map-get($fontSize, small);
+                        margin-top: -8px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        margin-top: -32px;
+
+                        p{
+                            margin-left: 12px;
+                        }
+                    }
+
+                    .userPhone{
+                        font-size: map-get($fontSize, small);
+
+                        margin-top: -8px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        margin-top: -32px;
+
+                        p{
+                            margin-left: 12px;
+                        }
+                    }
+
+                    .userLandmark{
+                        font-size: map-get($fontSize, small);
+
+                        margin-top: -8px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        margin-top: -32px;
+
+                        p{
+                            margin-left: 12px;
+                        }
+                    }
+
+                    .userStreet{
+                        font-size: map-get($fontSize, small);
+
+                        margin-top: -8px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        margin-top: -32px;
+
+                        p{
+                            margin-left: 12px;
+                        }
+                    }
+
+                }
+
+                .userInteractiveBtns{
+                    display: flex;
+                    .editBtn{
+                        padding: 8px;
+                        border: 1px solid $primaryColor;
+                        display: flex;
+                        align-items: center;
+
+                        .editLogo{
+                            font-size: map-get($fontSize, medium );
+                        }
+                    
+                        &:hover{
+                            background-color: $primaryColor;
+                            color: $secondaryColor;
+
+                        }
+                    }
+
+                    .deleteBtn{
+                        padding: 8px;
+                        border: 1px solid red;
+                        margin-left: 8px;
+                        background-color: $secondaryColor;
+                        color: red;
+                        display: flex;
+                        align-items: center;
+
+                        .deleteLogo{
+                            font-size: map-get($fontSize, medium );
+                        }
+
+                        &:hover{
+                            background-color: red;
+                            color: $secondaryColor;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        .titleText{
+            font-size: map-get($fontSize, medium );
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        label{
+            font-size: map-get($fontSize, small );
+            color: #ababab;
+        }
+        
+    }
+
+    .editBtn{
+        background-color: $secondaryColor;
+        border: none;
+        color: $primaryColor;
+        cursor: pointer;
+
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .userContainer{
+      padding: 0 32px;
+      
+    }
+}
+
+@media screen and (max-width:768px) {
+    .userContainer{
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+
+      .userTabButtons{
+        display: flex;
+        gap: 5px;
+
+        .tabButton{
+            padding: 10px;
+            min-width: auto;
+
+            .detailsContainer{
+                width: 50%;   
+
+                .details{
+                    font-size: map-get($fontSize, small );
+                    margin-bottom: 18px;
+                }
+            }
+          }
+
+      }
+      
+     
+
+    }
+}
+
+@media screen and (max-width:425px) {
+    .userContainer{
+      padding: 0 16px;
+
+      .userTabButtons{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .tabButton{
+            padding: 10px;
+            min-width: auto;
+            margin-bottom: 0px;
+            width: 100%;
+
+            .detailsContainer{
+                width: 50%;   
+
+                .details{
+                    font-size: map-get($fontSize, small );
+                    margin-bottom: 18px;
+                }
+            }
+          }
+
+      }
+      
+    }
+}
